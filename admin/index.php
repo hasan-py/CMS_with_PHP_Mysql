@@ -1,5 +1,6 @@
 <?php include "./includes/header.php" ?>
 <?php include "./includes/navigation.php" ?>
+<?php ob_start(); ?>
 
 <!-- this is for sideNav bar -->
 <?php include "./includes/sidebarNav.php" ?>
