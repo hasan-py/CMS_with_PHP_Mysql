@@ -4,9 +4,17 @@
 
 <!-- this is for sideNav bar -->
 <?php include "./includes/sidebarNav.php" ?>
+
+
 <div id="layoutSidenav_content">
 	<main>
 		<div class="container-fluid">
+			<h1 class="mt-4">Category List</h1>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="/cms/admin/index.php">Dashboard</a></li>
+                <li class="breadcrumb-item active">Categories</li>
+            </ol>
+
 			<div class="row">
 				<!-- Create Form -->
 				<?php include "./includes/createForm.php"; ?>
@@ -21,7 +29,6 @@
 			</div>
 
 			<div class="card my-4">
-				<div class="card-header"><i class="fas fa-table mr-1"></i>Category List</div>
 				<div class="card-body">
 					<div class="table-responsive">
 						<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
