@@ -4,6 +4,7 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
+                        <th>Actions</th>
                         <th>Id</th>
                         <th>Category</th>
                         <th>Title</th>
@@ -34,6 +35,10 @@
                         $post_status = $row["post_status"];
                         ?>
                         <tr>
+                            <td>
+                                <a class="btn btn-sm btn-info" href="post.php?source=edit_post&p_id=<?php echo $post_id; ?>"><i class="fas fa-edit"></i></a>
+                                <a class="btn btn-sm btn-danger" href="post.php?delete=<?php echo $post_id; ?>"><i class="fas fa-trash-alt"></i></a>
+                            </td>
                             <td><?php echo $post_id ?></td>
                             <td><?php echo $post_category_id ?></td>
                             <td><?php echo $post_title ?></td>
@@ -51,3 +56,13 @@
         </div>
     </div>
 </div>
+
+
+<?php 
+if(isset($_GET['delete'])){
+    $post_delete_id = $_GET['delete'];
+    $postDeleteQuery = "DELETE FROM `posts` WHERE post_id={$post_delete_id}";
+    $postDeleteQuery_res = mysqli_query($connection,$postDeleteQuery);
+    header("Location: post.php");
+}
+?>

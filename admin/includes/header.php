@@ -5,14 +5,7 @@ if(!$connection){
     echo 'Server Error';
 }
 ?>
-
-// <?php ob_start(); ?>
-// <?php session_start(); ?>
-// <?php 
-//     if(!isset($_SESSION['user_role'])){
-//         header("Location: ./index.php");
-//     }
-?>
+<?php ob_start(); ?>
 
 <!DOCTYPE html>
 <html lang="en">

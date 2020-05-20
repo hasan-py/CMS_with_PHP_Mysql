@@ -17,13 +17,13 @@
 
 			<div class="row">
 				<!-- Create Form -->
-				<?php include "./includes/createForm.php"; ?>
+				<?php include "./includes/createCategoryForm.php"; ?>
 
 				<!-- Edit Form -->
 				<?php 
 				if(isset($_GET['edit'])){
 					$cat_id = $_GET['edit'];
-					include "./includes/editForm.php";
+					include "./includes/editCategoryForm.php";
 				}
 				?>
 			</div>
@@ -53,8 +53,8 @@
 										<td><?php echo $cat_id ?></td>
 										<td><?php echo $cat_title ?></td>
 										<td>
-											<a <?php echo "href=categories.php?edit={$cat_id}"; ?> class="btn btn-info">Edit</a>
-											<a <?php echo "href=categories.php?delete={$cat_id}"; ?> class="btn btn-danger">Delete</a>
+				                            <a class="btn btn-sm btn-info" <?php echo "href=categories.php?edit={$cat_id}"; ?>><i class="fas fa-edit"></i></a>
+				                            <a class="btn btn-sm btn-danger" <?php echo "href=categories.php?delete={$cat_id}"; ?>><i class="fas fa-trash-alt"></i></a>
 										</td>
 									</tr>
 								<?php } ?>
