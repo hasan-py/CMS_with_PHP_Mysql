@@ -4,7 +4,7 @@
 if(isset($_POST['create_post'])){
   $post_title =  $_POST['title'];
   $post_author =  $_POST['author'];
-  $post_category_id =  $_POST['category_id'];
+  $post_category_id =  $_POST['post_category'];
   $post_status =  $_POST['status'];
   $post_tags =  $_POST['tags'];
   $post_content =  $_POST['content'];
@@ -23,7 +23,11 @@ if(isset($_POST['create_post'])){
   
   $createPostQueryDone = mysqli_query($connection,$createPostQuery);
   
-  confirmQuery($createPostQueryDone);
+  if(!$createPostQueryDone){
+    echo '<h1>Please Insert valid Letter in form</h1>';
+  }
+  header('Location: post.php');
+      exit;
 
 }
   
@@ -43,12 +47,20 @@ if(isset($_POST['create_post'])){
       </div>
     </div>
 
+
     <div class="form-group">
-      <label for="post_category_Id">Post Category Id</label>
-      <input name="category_id" type="number" class="form-control col-md-8" id="post_category_Id" placeholder="Enter Category Id" required>
-      <div class="invalid-feedback">
-        Must not be empty.
-      </div>
+       <label for="post_category">Post Category</label>
+    <select id="post_category" name="post_category" class="form-control col-md-8">
+      <?php
+      $query_categories = "SELECT * FROM `categories`";
+      $res_categories = mysqli_query($connection,$query_categories);
+      while ($row = mysqli_fetch_assoc($res_categories)){
+        $cat_title = $row["cat_title"];
+        $cat_id = $row["cat_id"];
+      ?>
+        <option value="<?php echo $cat_id; ?>"><?php echo $cat_title; ?></option>
+      <?php } ?>
+     </select>
     </div>
 
     <div class="form-group">
@@ -96,3 +108,4 @@ if(isset($_POST['create_post'])){
 
   </form>
 </div>
+

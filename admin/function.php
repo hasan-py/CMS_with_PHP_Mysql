@@ -3,7 +3,7 @@
 function confirmQuery($result){
 	global $connection;
 	if(!$result){
-		die("Query Failed".mysqli_error($connection));
+		echo '<h1>Please Insert valid Letter in form</h1>';
 	}
 }
 

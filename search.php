@@ -17,7 +17,7 @@ include "includes/navigation.php";
 
 
 <main>
-    <div class="container">
+    <div style="min-height: 550px;" class="container">
         <div class="row">
 
             <!-- blog-contents -->
@@ -48,22 +48,23 @@ include "includes/navigation.php";
                         <article class="blog-item">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <a href="single_blog_page.html">
+                                    <a href="singlePost.php?p_id=<?php echo $post_id; ?>">
                                         <img src="image/<?php echo $post_image; ?>" class="img-thumbnail center-block" alt="Blog Post Thumbnail">
                                     </a>
                                 </div>
                                 <div class="col-md-9">
                                     <p>
                                         Posted By 
-                                        <a href="html5-templates.html"><?php echo $post_author; ?></a>
+                                        <a href="singlePost.php?p_id=<?php echo $post_id; ?>"><?php echo $post_author; ?></a>
                                         ,
                                         <a href="#"><?php echo $post_tags; ?></a>
                                         <time><?php echo $post_date; ?><time>
                                         </p>
                                         <h1>
-                                            <a href="single_blog_page.html"><?php echo $post_title; ?></a>
+                                            <a href="singlePost.php?p_id=<?php echo $post_id; ?>"><?php echo $post_title; ?></a>
                                         </h1>
-                                        <p><?php echo $post_content; ?></p>
+                                        <p><?php echo substr($post_content,0,100)."..."; ?></p>
+                                        <p><strong>Tags</strong> : <?php echo $post_tags ?></p>
                                     </div>
                                 </div>
                             </article>
@@ -114,7 +115,7 @@ include "includes/navigation.php";
             </div>
         </div> <!-- end of /.container -->
     </main>
-
+    
     <?php
     include "includes/footer.php";
     ?>

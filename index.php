@@ -1,17 +1,17 @@
 <!-- Connection -->
 
 <?php
-include "includes/db.php";
+include "./includes/db.php";
 ?>
 
 <!-- Header -->
 <?php
-include "includes/header.php";
+include "./includes/header.php";
 ?>
 
 <!-- Navigation -->
 <?php
-include "includes/navigation.php";
+include "./includes/navigation.php";
 ?>
 
 

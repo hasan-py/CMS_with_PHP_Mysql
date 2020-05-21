@@ -6,8 +6,8 @@
                     <tr>
                         <th>Actions</th>
                         <th>Id</th>
-                        <th>Category</th>
                         <th>Title</th>
+                        <th>Category</th>
                         <th>Author</th>
                         <th>PubDate</th>
                         <th>Image</th>
@@ -40,8 +40,18 @@
                                 <a class="btn btn-sm btn-danger" href="post.php?delete=<?php echo $post_id; ?>"><i class="fas fa-trash-alt"></i></a>
                             </td>
                             <td><?php echo $post_id ?></td>
-                            <td><?php echo $post_category_id ?></td>
                             <td><?php echo $post_title ?></td>
+                            
+                            <?php 
+                                $categoryQuery = "SELECT cat_title FROM `categories` WHERE cat_id={$post_category_id}";
+                                $categoryQueryResult = mysqli_query($connection,$categoryQuery);
+                                while ($row = mysqli_fetch_assoc($categoryQueryResult)){
+                                    $get_Category = $row["cat_title"];
+                                    echo "<td>{$get_Category}</td>";
+                                }
+                            ?>
+
+                            
                             <td><?php echo $post_author ?></td>
                             <td><?php echo $post_date ?></td>
                             <td><?php echo "<img style='height:50px;' class='img-responsive' src='../image/$post_image' alt=''>"; ?></td>
