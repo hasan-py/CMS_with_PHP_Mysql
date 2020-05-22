@@ -24,7 +24,7 @@ include "./includes/navigation.php";
             <section class="col-md-8">
 
                 <?php
-                include "includes/post.php";
+                include "includes/categoryBasedPost.php";
                 ?>  
                     <!-- pagination -->
                     <div class="page-turn">
@@ -54,14 +54,13 @@ include "./includes/navigation.php";
                     </div> <!-- /.page-turn -->
                 </section>
                 
-                <section>
+
                 <!-- sidebar -->
                 <?php
                 include "includes/sidebar.php";
                 ?>
-                </section>
+            
 
             </div>
         </div> <!-- end of /.container -->
     </main>
-

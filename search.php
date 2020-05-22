@@ -115,7 +115,3 @@ include "includes/navigation.php";
             </div>
         </div> <!-- end of /.container -->
     </main>
-    
-    <?php
-    include "includes/footer.php";
-    ?>

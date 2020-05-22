@@ -827,6 +827,7 @@ footer .social-share li a i {
 
 @media (max-width: 500px) {
 	aside.col-xs-8 {
+		position: fixed;
 		width: 100%;
 	}
 }

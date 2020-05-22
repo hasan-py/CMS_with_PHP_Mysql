@@ -48,7 +48,7 @@ include "./includes/navigation.php";
                                     $categoryQueryResult = mysqli_query($connection,$categoryQuery);
                                     while ($row = mysqli_fetch_assoc($categoryQueryResult)){
                                         $get_Category = $row["cat_title"];
-                                        echo "<a href='index.php'>{$get_Category}</a>,";
+                                        echo "<a href='category.php?category_id={$post_category_id}'>{$get_Category}</a>,";
                                     }
                                     ?>
                                     Published

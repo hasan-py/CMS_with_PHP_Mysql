@@ -1,16 +1,20 @@
 <?php
-$query_posts = "SELECT * FROM `posts`";
-$res_posts = mysqli_query($connection,$query_posts);
-while ($row = mysqli_fetch_assoc($res_posts)){
-    $post_id = $row["post_id"];
-    $post_category_id = $row["post_category_id"];
-    $post_title = $row["post_title"];
-    $post_author = $row["post_author"];
-    $post_date = $row["post_date"];
-    $post_content = $row["post_content"];
-    $post_image = $row["post_image"];
-    $post_tags = $row["post_tags"];
-    ?>
+
+if(isset($_GET['category_id'])){
+    $mainCategoryId = $_GET["category_id"];
+
+    $query_posts = "SELECT * FROM `posts` WHERE post_category_id={$mainCategoryId}";
+    $res_posts = mysqli_query($connection,$query_posts);
+    while ($row = mysqli_fetch_assoc($res_posts)){
+        $post_id = $row["post_id"];
+        $post_category_id = $row["post_category_id"];
+        $post_title = $row["post_title"];
+        $post_author = $row["post_author"];
+        $post_date = $row["post_date"];
+        $post_content = $row["post_content"];
+        $post_image = $row["post_image"];
+        $post_tags = $row["post_tags"];
+        ?>
 
     <article class="blog-item">
         <div class="row">
@@ -29,7 +33,7 @@ while ($row = mysqli_fetch_assoc($res_posts)){
                     $categoryQueryResult = mysqli_query($connection,$categoryQuery);
                     while ($row = mysqli_fetch_assoc($categoryQueryResult)){
                         $get_Category = $row["cat_title"];
-                        echo "<a href='category.php?category_id={$post_category_id}'>{$get_Category}</a>,";
+                        echo "<a href='index.php'>{$get_Category}</a>,";
                     }
                     ?>
                     <time><?php echo $post_date; ?><time>
@@ -42,4 +46,7 @@ while ($row = mysqli_fetch_assoc($res_posts)){
                 </div>
             </div>
         </article>
-    <?php } ?>
+    <?php }} ?>
+
+
+

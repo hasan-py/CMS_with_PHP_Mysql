@@ -23,7 +23,8 @@
                 $res_categories = mysqli_query($connection,$query_categories);
                 while ($row = mysqli_fetch_assoc($res_categories)){
                     $cat_title = $row["cat_title"];
-                    echo "<li><a href='/'>$cat_title</span></a></li>" ;
+                    $cat_id = $row["cat_id"];
+                    echo "<li><a href='category.php?category_id={$cat_id}'>$cat_title</span></a></li>" ;
                 }
                 ?>
                 <li><a href='admin'>admin</span></a></li>
