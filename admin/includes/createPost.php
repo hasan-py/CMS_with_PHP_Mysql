@@ -38,13 +38,10 @@ if(isset($_POST['create_post'])){
   <a href="post.php">Back Post</a>
   <h3>Create Post</h3>
   <hr>
-  <form method="POST" action="" enctype="multipart/form-data" class="form-group needs-validation" novalidate>
+  <form method="POST" action="" enctype="multipart/form-data" class="form-group">
     <div class="form-group">
       <label for="post_title">Post Title</label>
       <input name="title" type="text" class="form-control col-md-8" id="post_title" placeholder="Enter Title" required>
-      <div class="invalid-feedback">
-        Must not be empty.
-      </div>
     </div>
 
 
@@ -66,42 +63,27 @@ if(isset($_POST['create_post'])){
     <div class="form-group">
       <label for="post_author">Post Author</label>
       <input name="author" type="text" class="form-control col-md-8" id="post_author" placeholder="Enter Author Name" required>
-      <div class="invalid-feedback">
-        Must not be empty.
-      </div>
     </div>
 
     <div class="form-group">
       <label for="post_image">Post Image</label>
       <input name="image" type="file" class="form-control-file col-md-8" id="post_image" required>
-      <div class="invalid-feedback">
-        Must not be empty.
-      </div>
     </div>
 
 
     <div class="form-group">
       <label for="post_tags">Post Tag</label>
       <input name="tags" type="text" class="form-control col-md-8" id="post_tags" placeholder="Enter some tags" required>
-      <div class="invalid-feedback">
-        Must not be empty.
-      </div>
     </div>
 
     <div class="form-group">
       <label for="post_status">Post Status</label>
       <input name="status" type="text" class="form-control col-md-8" id="post_status" placeholder="Type Your status" required>
-      <div class="invalid-feedback">
-        Must not be empty.
-      </div>
     </div>
 
     <div class="form-group">
       <label for="post_content">Post Content</label>
       <textarea name="content" class="form-control col-md-8" id="post_content" rows="3" placeholder="Enter Your Content" required></textarea>
-      <div class="invalid-feedback">
-        Must not be empty.
-      </div>
     </div>
   
     <button type="submit" name="create_post" class="btn btn-dark btn-block col-md-8">Submit Post</button>

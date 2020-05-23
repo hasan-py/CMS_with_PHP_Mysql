@@ -23,13 +23,10 @@ if(isset($_POST['catAdd'])){
 		</div>
 
 	<?php } ?>
-	<form name="catForm" action="categories.php" method="POST" class="form-group needs-validation" novalidate>
+	<form name="catForm" action="categories.php" method="POST" class="form-group needs-validation">
 		<div>
 			<label for="validationCustom">Add Category</label>
 			<input name="catTitle" id="validationCustom" type="text" class="form-control" placeholder="Enter" required>
-			<div class="invalid-feedback">
-				Must not be empty.
-			</div>
 		</div>
 		<button name="catAdd" type="submit" class="mt-2 btn btn-dark">Add + </button>
 	</form>	

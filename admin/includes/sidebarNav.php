@@ -21,6 +21,10 @@
 						<div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="post.php">View All Post</a><a class="nav-link" href="post.php?source=add_post">Create Post</a></nav>
 						</div>
+									<a class="nav-link" href="comments.php"
+									><div class="sb-nav-link-icon"><i class="far fa-comment"></i></div>
+									Comments</a
+									>
 						<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages"
 						><div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
 						Users
@@ -44,10 +48,7 @@
 											</div>
 										</nav>
 									</div>
-									<a class="nav-link" href="charts.html"
-									><div class="sb-nav-link-icon"><i class="far fa-comment"></i></div>
-									Comments</a
-									><a class="nav-link" href="tables.html"
+									<a class="nav-link" href="tables.html"
 									><div class="sb-nav-link-icon"><i class="far fa-user"></i></div>
 									Profile</a
 									>

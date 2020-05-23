@@ -82,7 +82,7 @@ include "./includes/navigation.php";
 
                 <div class="author">
                     <p>Written by <strong class="text-capitalize"><?php echo $post_author ?></strong></p>
-                    <p>
+                    <p> 
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -90,6 +90,48 @@ include "./includes/navigation.php";
                         cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
                         proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </p>
+                </div>
+                
+
+                <?php 
+                if(isset($_POST['create_comment'])){
+                    $p_id =  $_GET['p_id'];
+                    $authorName = $_POST['authorName'];
+                    $email = $_POST['email'];
+                    $comment = $_POST['comment'];
+                    
+                    $commentQuery = "INSERT INTO `comments`(`comment_post_id`, `comment_author`, `comment_email`, `comment_status`, `comment_date`, `comment_content`) VALUES ({$p_id},'{$authorName}','{$email}','unapproved',now(),'{$comment}')";
+                    $commentQueryResult = mysqli_query($connection,$commentQuery);
+                    if (!$commentQueryResult){
+                        die("doen't insert".mysqli_error($connection));
+                    }
+                    ?>
+                    <?php } ?>
+
+
+
+                <div class="comment-post">
+                    <h1>post a comment</h1>
+                    <form action="" method="post">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <input  name="authorName" type="text" class="form-control" id="name" required="required" placeholder="Author Name">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <input name="email" type="email" class="form-control" id="email" required="required" placeholder="Email Address">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <textarea name="comment" type="text" class="form-control" id="comment" rows="5" required="required" placeholder="Type here comment"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" id="submit" name="create_comment" class="btn btn-cmnt">post comment</button>
+                        </div>
+
+                    </form>
                 </div>
 
                 <div class="feedback">
@@ -99,6 +141,33 @@ include "./includes/navigation.php";
                             <div class="cmnt-clipboard"><span class="btn-clipboard">Reply</span></div>
                             <div class="well">
                                 <div class="row">
+                                    <div class="col-md-2">
+                                        <img src="assets/img/commenter1.jpg" class="img-responsive center-block">
+                                    </div>
+                                    <div class="col-md-10">
+                                        <p class="comment-info">
+                                            <strong>Reena Scot</strong> <span>22 april 2015</span>
+                                        </p>
+                                        <p>
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since they 1500s.
+                                        </p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div style="margin-left:100px; margin-top:20px;" class="row">
+                                    <div class="col-md-2">
+                                        <img src="assets/img/commenter1.jpg" class="img-responsive center-block">
+                                    </div>
+                                    <div class="col-md-10">
+                                        <p class="comment-info">
+                                            <strong>Reena Scot</strong> <span>22 april 2015</span>
+                                        </p>
+                                        <p>
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since they 1500s.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div style="margin-left:100px; margin-top:20px;" class="row">
                                     <div class="col-md-2">
                                         <img src="assets/img/commenter1.jpg" class="img-responsive center-block">
                                     </div>
@@ -133,44 +202,7 @@ include "./includes/navigation.php";
                     </div>
                 </div>
 
-                <div class="comment-post">
-                    <h1>post a comment</h1>
-                    <form method="post" >
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <input  name="name" type="text" class="form-control" id="name" required="required" placeholder="Full Name">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <input name="email" type="email" class="form-control" id="email" required="required" placeholder="Email Address">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <input name="website" type="url" class="form-control" id="subject" required="required" placeholder="Your Website">
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <textarea name="message" type="text" class="form-control" id="message" rows="5" required="required" placeholder="Type here message"></textarea>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" required="required"> Please Check to Confirm
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <button type="submit" id="submit" name="submit" class="btn btn-cmnt">post comment</button>
-                            </div>
-                        </div>
 
-                    </form>
-                </div>
             </section>
 
 
