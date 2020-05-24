@@ -40,7 +40,7 @@
                                 <a class="btn btn-sm btn-danger" href="post.php?delete=<?php echo $post_id; ?>"><i class="fas fa-trash-alt"></i></a>
                             </td>
                             <td><?php echo $post_id ?></td>
-                            <td><?php echo $post_title ?></td>
+                            <td><a href='../singlePost.php?p_id=<?php echo $post_id ?>'><?php echo $post_title ?></td>
                             
                             <?php 
                                 $categoryQuery = "SELECT cat_title FROM `categories` WHERE cat_id={$post_category_id}";

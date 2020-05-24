@@ -5,15 +5,14 @@
                 <thead>
                     <tr>
                         <th>Actions</th>
-                        <th>Aproved</th>
-                        <th>Unaproved</th>
+                        <th>Permisson</th>
+                        <th>Status</th>
                         <th>Id</th>
                         <th>Author</th>
                         <th>Comment</th>
                         <th>In Response to</th>
                         <th>Email</th>
                         <th>Date</th>
-                        <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -33,31 +32,70 @@
                         <tr>
                             <td>
                                 <a class="btn btn-sm btn-info" href="post.php?source=edit_post&p_id=<?php echo $post_id; ?>"><i class="fas fa-edit"></i></a>
-                                <a class="btn btn-sm btn-danger" href="post.php?delete=<?php echo $post_id; ?>"><i class="fas fa-trash-alt"></i></a>
+                                <a class="btn btn-sm btn-danger" href="comments.php?delete=<?php echo $comment_id; ?>"><i class="fas fa-trash-alt"></i></a>
                             </td>
-                            <td>a</td>
-                            <td>u</td>
-                            <td><?php echo $comment_id ?></td>
-                            <td><?php echo $comment_author ?></td>
-                            <td><?php echo $comment_content ?></td>
-                            <td>some text</td>
-                            <td><?php echo $comment_email ?></td>
-                            <td><?php echo $comment_date ?></td>
-                            <td><?php echo $comment_status ?></td>
-                        </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
+                            <td>
+                                <a class="btn btn-sm btn-info" href="comments.php?approved=<?php echo $comment_id; ?>"><i class="fas fa-check-square"></i></a>
+                                <a class="btn btn-sm btn-danger" href="comments.php?unapproved=<?php echo $comment_id; ?>"><i class="fas fa-ban"></i></a>
+                            </td>
+                                <td><?php echo $comment_status ?></td>
+                                <td><?php echo $comment_id ?></td>
+                                <td><?php echo $comment_author ?></td>
+                                <td><?php echo $comment_content ?></td>
+
+                                <?php
+                                $query = "SELECT * FROM `posts` WHERE post_id=$comment_post_id";
+                                $res_posts = mysqli_query($connection,$query);
+                                while ($row = mysqli_fetch_assoc($res_posts)){
+                                    $post_id = $row["post_id"];
+                                    $post_title = substr($row["post_title"],0,30);
+                                    echo  "<td><a href='../singlePost.php?p_id={$post_id}'>$post_title</a></td>";
+                                }
+                                ?>
+                                <td><?php echo $comment_email ?></td>
+                                <td><?php echo $comment_date ?></td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>
 
 
-<?php 
-if(isset($_GET['delete'])){
-    $post_delete_id = $_GET['delete'];
-    $postDeleteQuery = "DELETE FROM `posts` WHERE post_id={$post_delete_id}";
-    $postDeleteQuery_res = mysqli_query($connection,$postDeleteQuery);
-    header("Location: post.php");
-}
-?>
+    <?php 
+    if(isset($_GET['delete'])){
+        $comment_delete_id = $_GET['delete'];
+        $commentDeleteQuery = "DELETE FROM `comments` WHERE comment_id=$comment_id";
+        $commentDeleteQuery_res = mysqli_query($connection,$commentDeleteQuery);
+        if($commentDeleteQuery_res){
+            header("Location:comments.php");
+            exit;
+        }
+
+    }
+    
+    if(isset($_GET['approved'])){
+        $comment_approved_id = $_GET['approved'];
+        $commentApprovedQuery = "UPDATE `comments` SET comment_status='approved' WHERE comment_id=$comment_approved_id";
+        $commentApprovedQuery_res = mysqli_query($connection,$commentApprovedQuery);
+        if($commentApprovedQuery_res){
+            header("Location:comments.php");
+            exit;
+        }
+
+    }
+    
+    if(isset($_GET['unapproved'])){
+        $comment_unapproved_id = $_GET['unapproved'];
+        $commentUnapprovedQuery = "UPDATE `comments` SET comment_status='unapproved' WHERE comment_id=$comment_unapproved_id";
+        $commentUnapprovedQuery_res = mysqli_query($connection,$commentUnapprovedQuery);
+        if($commentUnapprovedQuery_res){
+            header("Location:comments.php");
+            exit;
+        }
+
+    }
+
+
+    ?>

@@ -105,8 +105,15 @@ include "./includes/navigation.php";
                     if (!$commentQueryResult){
                         die("doen't insert".mysqli_error($connection));
                     }
+                    
+                    $commentCountQuery = "UPDATE `posts` SET `post_comment_count` = post_comment_count+1 WHERE post_id =$p_id";
+                    $commentCountQueryResult = mysqli_query($connection,$commentCountQuery);
+                    if (!$commentCountQueryResult){
+                        die(mysqli_error($connection));
+                    }
+
                     ?>
-                    <?php } ?>
+                    <?php }?>
 
 
 
@@ -136,51 +143,23 @@ include "./includes/navigation.php";
 
                 <div class="feedback">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-8">
                             <h1>feedback</h1>
-                            <div class="cmnt-clipboard"><span class="btn-clipboard">Reply</span></div>
-                            <div class="well">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <img src="assets/img/commenter1.jpg" class="img-responsive center-block">
-                                    </div>
-                                    <div class="col-md-10">
-                                        <p class="comment-info">
-                                            <strong>Reena Scot</strong> <span>22 april 2015</span>
-                                        </p>
-                                        <p>
-                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since they 1500s.
-                                        </p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div style="margin-left:100px; margin-top:20px;" class="row">
-                                    <div class="col-md-2">
-                                        <img src="assets/img/commenter1.jpg" class="img-responsive center-block">
-                                    </div>
-                                    <div class="col-md-10">
-                                        <p class="comment-info">
-                                            <strong>Reena Scot</strong> <span>22 april 2015</span>
-                                        </p>
-                                        <p>
-                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since they 1500s.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div style="margin-left:100px; margin-top:20px;" class="row">
-                                    <div class="col-md-2">
-                                        <img src="assets/img/commenter1.jpg" class="img-responsive center-block">
-                                    </div>
-                                    <div class="col-md-10">
-                                        <p class="comment-info">
-                                            <strong>Reena Scot</strong> <span>22 april 2015</span>
-                                        </p>
-                                        <p>
-                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since they 1500s.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                            
+                            <?php 
+                                
+                            ?>
+                            <?php
+                            $p_id =  $_GET['p_id'];
+                            $getApprovedCommentQuery = "SELECT * FROM `comments` WHERE comment_post_id=$p_id and comment_status='approved' ORDER BY comment_id DESC";
+
+                            $getApprovedCommentQueryRes = mysqli_query($connection,$getApprovedCommentQuery);
+                            while ($row = mysqli_fetch_assoc($getApprovedCommentQueryRes)){
+                                $comment_id = $row['comment_id'];
+                                $comment_author = $row['comment_author'];
+                                $comment_content = $row['comment_content'];
+                                $comment_date = $row['comment_date'];
+                            ?>
 
                             <div class="cmnt-clipboard"><span class="btn-clipboard">Reply</span></div>
                             <div class="well">
@@ -190,14 +169,16 @@ include "./includes/navigation.php";
                                     </div>
                                     <div class="col-md-10">
                                         <p class="comment-info">
-                                            <strong>David Martin</strong> <span>22 april 2015</span>
+                                            <strong><?php echo $comment_author; ?></strong> <span><?php echo $comment_date; ?></span>
                                         </p>
                                         <p>
-                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since they 1500s.
+                                            <?php echo $comment_content; ?>
                                         </p>
                                     </div>
                                 </div>
                             </div>
+                            <?php } ?>
+
                         </div>
                     </div>
                 </div>

@@ -8,7 +8,7 @@ if(isset($_POST['create_post'])){
   $post_status =  $_POST['status'];
   $post_tags =  $_POST['tags'];
   $post_content =  $_POST['content'];
-  $post_comment_count = 4;
+  $post_comment_count = 0;
 
   $post_date =  date('d-m-y');
 
