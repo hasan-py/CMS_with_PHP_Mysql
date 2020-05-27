@@ -5,13 +5,14 @@
                 <thead>
                     <tr>
                         <th>Actions</th>
+                        <th>Change Role</th>
+                        <th>Role</th>
                         <th>Id</th>
                         <th>UserName</th>
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Email</th>
                         <th>Image</th>
-                        <th>Role</th>
                         <th>Join Date</th>
                         <th>randsolt</th>
                     </tr>
@@ -33,20 +34,20 @@
                         ?>
                         <tr>
                             <td>
-                                <a class="btn btn-sm btn-info" href="users.php?source=edit_post&p_id=<?php echo $post_id; ?>"><i class="fas fa-edit"></i></a>
+                                <a class="btn btn-sm btn-info" href="users.php?source=edit_user&u_id=<?php echo $user_id; ?>"><i class="fas fa-edit"></i></a>
                                 <a class="btn btn-sm btn-danger" href="users.php?delete=<?php echo $user_id; ?>"><i class="fas fa-trash-alt"></i></a>
                             </td>
-<!--                             <td>
-                                <a class="btn btn-sm btn-info" href="comments.php?approved=<?php echo $comment_id; ?>"><i class="fas fa-check-square"></i></a>
-                                <a class="btn btn-sm btn-danger" href="comments.php?unapproved=<?php echo $comment_id; ?>"><i class="fas fa-ban"></i></a>
-                            </td> -->
+                            <td>
+                                <a class="btn btn-sm btn-info" href="users.php?admin=<?php echo $user_id; ?>">Admin</a>
+                                <a class="btn btn-sm btn-danger" href="users.php?subscriber=<?php echo $user_id; ?>">Subscriber</a>
+                            </td>
+                                <td><?php echo $user_role ?></td>
                                 <td><?php echo $user_id ?></td>
                                 <td><?php echo $username ?></td>
                                 <td><?php echo $user_firstname ?></td>
                                 <td><?php echo $user_laststname ?></td>
                                 <td><?php echo $user_email ?></td>
                                 <td><?php echo $user_image ?></td>
-                                <td><?php echo $user_role ?></td>
                                 <td><?php echo $user_joindate ?></td>
                                 <td><?php echo $randsolt ?></td>
 
@@ -82,23 +83,23 @@
 
     }
     
-    if(isset($_GET['approved'])){
-        $comment_approved_id = $_GET['approved'];
-        $commentApprovedQuery = "UPDATE `comments` SET comment_status='approved' WHERE comment_id=$comment_approved_id";
-        $commentApprovedQuery_res = mysqli_query($connection,$commentApprovedQuery);
-        if($commentApprovedQuery_res){
-            header("Location:comments.php");
+    if(isset($_GET['admin'])){
+        $user_admin_id = $_GET['admin'];
+        $userAdminQuery = "UPDATE `users` SET user_role='admin' WHERE user_id=$user_admin_id";
+        $userAdminQuery_res = mysqli_query($connection,$userAdminQuery);
+        if($userAdminQuery_res){
+            header("Location:users.php");
             exit;
         }
 
     }
     
-    if(isset($_GET['unapproved'])){
-        $comment_unapproved_id = $_GET['unapproved'];
-        $commentUnapprovedQuery = "UPDATE `comments` SET comment_status='unapproved' WHERE comment_id=$comment_unapproved_id";
-        $commentUnapprovedQuery_res = mysqli_query($connection,$commentUnapprovedQuery);
-        if($commentUnapprovedQuery_res){
-            header("Location:comments.php");
+    if(isset($_GET['subscriber'])){
+        $user_admin_id = $_GET['subscriber'];
+        $userAdminQuery = "UPDATE `users` SET user_role='subscriber' WHERE user_id=$user_admin_id";
+        $userAdminQuery_res = mysqli_query($connection,$userAdminQuery);
+        if($userAdminQuery_res){
+            header("Location:users.php");
             exit;
         }
 
