@@ -1,16 +1,31 @@
 <?php include "./includes/header.php" ?>
 <?php include "./includes/navigation.php" ?>
-<?php ob_start(); ?>
+
+<?php 
+	
+	if(!isset($_SESSION['login'])){
+		header('Location: ../index.php');
+	}	
+?>
 
 <!-- this is for sideNav bar -->
 <?php include "./includes/sidebarNav.php" ?>
 <div id="layoutSidenav_content">
 	<main>
 		<div class="container-fluid">
-			<h1 class="mt-4">Dashboard</h1>
+			<?php 
+				if(isset($_SESSION['user_firstname']) && isset($_SESSION['user_lastname'])){
+			?>
+			<h1 class="mt-4">Welcome,<?php echo $_SESSION['user_firstname']." ".$_SESSION['user_lastname']; ?></h1>
 			<ol class="breadcrumb mb-4">
 				<li class="breadcrumb-item active">Dashboard</li>
 			</ol>
+		<?php }else{
+			echo 'No session set';
+		} ?>
+			<div class="card mb-4">
+                            <div class="card-body">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>.</div>
+                        </div>
 			<div class="row">
 				<div class="col-xl-3 col-md-6">
 					<div class="card bg-primary text-white mb-4">

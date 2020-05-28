@@ -1,10 +1,30 @@
+
 <aside class="col-md-4 col-sm-8 col-xs-8">
     <div class="sidebar">
+
+        <!-- Login Form -->
+        <div style="margin-left:40px;" class="search-widget">
+            <h3>Login</h3>
+            <?php 
+                if(isset($_SESSION['log_err'])){
+                    echo $_SESSION['log_err'];
+                }
+            ?>
+            <form id="my_form" action="./includes/login.php" method="POST">    
+                <div class="form-group">
+                    <input name="log_username" class="form-control" type="text" placeholder="Enter Your username">
+                </div>
+                <div class="form-group">
+                    <input name="log_password" class="form-control" type="password" placeholder="Enter Your password">
+                </div>
+                    <button name="loginSubmit" type="submit" style="background:black;color:white;" class="btn btn-dark btn-block">Login</button>
+            </form>
+        </div>
 
         <!-- search option -->
         
         <?php
-            
+
         ?>
 
         <div style="margin-left:40px;" class="search-widget">
@@ -25,13 +45,13 @@
             <div class="margin-bottom-sm list-group">
                 <ul style="list-style-type:none;">
                     <?php
-                        $query_categories = "SELECT * FROM `categories`";
-                        $res_categories = mysqli_query($connection,$query_categories);
-                        while ($row = mysqli_fetch_assoc($res_categories)){
-                            $cat_title = $row["cat_title"];
-                            $cat_id = $row["cat_id"];
-                    ?>
-                    <li class="list-group-item"><a href="category.php?category_id=<?php echo $cat_id ?>"><?php echo $cat_title; ?></a></li>
+                    $query_categories = "SELECT * FROM `categories`";
+                    $res_categories = mysqli_query($connection,$query_categories);
+                    while ($row = mysqli_fetch_assoc($res_categories)){
+                        $cat_title = $row["cat_title"];
+                        $cat_id = $row["cat_id"];
+                        ?>
+                        <li class="list-group-item"><a href="category.php?category_id=<?php echo $cat_id ?>"><?php echo $cat_title; ?></a></li>
                     <?php } ?>
                 </ul>
             </div>
