@@ -18,13 +18,13 @@ if(isset($_POST['loginSubmit'])){
 			$_SESSION['user_firstname'] = $row['user_firstname'];
 			$_SESSION['user_lastname'] = $row['user_lastname'];
 			$_SESSION['login'] = true;
+			$_SESSION['loginCMS'] = true;
 			$_SESSION['user_role'] = $row['user_role'];
 
 			header('Location: ../admin');
 		}
 
 	}else{
-		$_SESSION['log_err'] = 'Username or Password Incorrect.'; 
 		header('Location: ../index.php');
 
 	}

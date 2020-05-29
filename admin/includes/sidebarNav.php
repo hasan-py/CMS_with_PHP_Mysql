@@ -42,7 +42,7 @@
 											</div>
 										</nav> -->
 									</div>
-									<a class="nav-link" href="tables.html"
+									<a class="nav-link" href="profile.php"
 									><div class="sb-nav-link-icon"><i class="far fa-user"></i></div>
 									Profile</a
 									>
