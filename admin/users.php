@@ -5,6 +5,14 @@
 <?php include "./includes/sidebarNav.php" ?>
 <?php include "./function.php" ?>
 
+<?php 
+if(!isset($_SESSION['loginCMS'])){
+    header('Location: ../index.php');
+}
+
+?>
+
+
 <div id="layoutSidenav_content">
     <main>
             <div class="container-fluid">

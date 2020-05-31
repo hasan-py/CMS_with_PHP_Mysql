@@ -1,4 +1,12 @@
 <?php 
+if(!isset($_SESSION['loginCMS'])){
+    header('Location: ../index.php');
+}
+
+?>
+
+
+<?php 
 
 function confirmQuery($result){
 	global $connection;

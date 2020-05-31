@@ -1,25 +1,3 @@
-
-<aside class="col-md-4 col-sm-8 col-xs-8">
-    <div class="sidebar">
-
-        <?php 
-        if(isset($_SESSION['login'])==null){
-           ?>
-           <!-- Login Form -->
-           <div style="margin-left:40px;" class="search-widget">
-            <h3>Login</h3>
-            <form id="my_form" action="./includes/login.php" method="POST">    
-                <div class="form-group">
-                    <input name="log_username" class="form-control" type="text" placeholder="Enter Your username">
-                </div>
-                <div class="form-group">
-                    <input name="log_password" class="form-control" type="password" placeholder="Enter Your password">
-                </div>
-                <button name="loginSubmit" type="submit" style="background:black;color:white;" class="btn btn-dark btn-block">Login</button>
-            </form>
-        </div>
-    <?php } ?>
-
     <!-- search option -->
     <div style="margin-left:40px;" class="search-widget">
         <h3>Blog Search</h3>
@@ -66,5 +44,4 @@
         <hr>
         &copy; <?php echo date("Y"); ?> PHP BLOG | Develop by Hasan-py
     </div>
-</div>
-</aside> 
+

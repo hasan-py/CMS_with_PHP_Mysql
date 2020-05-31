@@ -3,7 +3,7 @@
         <div class="d-flex align-items-center justify-content-between small">
             <div class="text-muted">Copyright &copy; <?php echo "CMS ".date('Y'); ?></div>
             <div>
-                <a href="github/hasan-py">Developed by Hasan-py</a>
+                <a href="https://github.com/hasan-py">Developed by Hasan-py</a>
             </div>
         </div>
     </div>

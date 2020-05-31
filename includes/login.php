@@ -17,7 +17,6 @@ if(isset($_POST['loginSubmit'])){
 			$_SESSION['user_id'] = $row['user_id'];
 			$_SESSION['user_firstname'] = $row['user_firstname'];
 			$_SESSION['user_lastname'] = $row['user_lastname'];
-			$_SESSION['login'] = true;
 			$_SESSION['loginCMS'] = true;
 			$_SESSION['user_role'] = $row['user_role'];
 

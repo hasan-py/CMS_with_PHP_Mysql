@@ -3,9 +3,10 @@
 
 <?php 
 
-if(!isset($_SESSION['login'])){
+if(!isset($_SESSION['loginCMS'])){
 	header('Location: ../index.php');
-}	
+}
+
 ?>
 
 <!-- this is for sideNav bar -->
