@@ -78,12 +78,16 @@ if(isset($_POST['create_post'])){
 
     <div class="form-group">
       <label for="post_status">Post Status</label>
-      <input name="status" type="text" class="form-control col-md-8" id="post_status" placeholder="Type Your status" required>
+      <select name="status" class="form-control col-md-8" id="post_status" placeholder="Type Your status" required>
+
+        <option value="published">Published</option>
+        <option value="draft">Draft</option>
+    </select>
     </div>
 
     <div class="form-group">
-      <label for="post_content">Post Content</label>
-      <textarea name="content" class="form-control col-md-8" id="post_content" rows="3" placeholder="Enter Your Content" required></textarea>
+      <label for="mytextarea">Post Content</label>
+      <textarea id="mytextarea" name="content" class="form-control col-md-8" rows="3" placeholder="Enter Your Content" required></textarea>
     </div>
   
     <button type="submit" name="create_post" class="btn btn-dark btn-block col-md-8">Submit Post</button>

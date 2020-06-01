@@ -2,7 +2,11 @@
 
 <?php
 include "./includes/db.php";
+session_start();
 ?>
+
+
+
 
 <!-- Header -->
 <?php
@@ -31,6 +35,7 @@ include "./includes/navigation.php";
                         $singlePostQueryResult = mysqli_query($connection,$singlePostQuery);
                         if($singlePostQueryResult){
                             while($row = mysqli_fetch_assoc($singlePostQueryResult)){
+                                $post_id =  $row['post_id'];
                                 $post_category_id = $row['post_category_id'];
                                 $post_title = $row['post_title'];
                                 $post_date = $row['post_date'];
@@ -38,8 +43,10 @@ include "./includes/navigation.php";
                                 $post_image = $row['post_image'];
                                 $post_content = $row['post_content'];
                                 $post_tags = $row['post_tags'];
+                                $post_status = $row['post_status'];
 
                                 ?>
+
 
                                 <div class="alert alert-info">
                                     <a href="index.php">home</a>,
@@ -51,13 +58,26 @@ include "./includes/navigation.php";
                                         echo "<a href='category.php?category_id={$post_category_id}'>{$get_Category}</a>,";
                                     }
                                     ?>
-                                    Published
+                                    <?php echo $post_status ?>
                                     <time><?php echo $post_date ?></time>
                                     by
                                     <time><?php echo $post_author ?></time>
                                 </div>
 
                                 <h1><?php echo $post_title ?></h1>
+
+                                
+                                <?php 
+                                
+                                if(isset($_SESSION['loginCMS'])){
+                                ?>
+                                 
+                                 <div style="margin-bottom:10px;">     
+                                <a style="background:black;color:white;" class="btn btn-dark" href="admin/post.php?source=edit_post&p_id=<?php echo $post_id ?>">Edit Post</a>
+                                 </div>
+
+                            <?php } ?>
+
                                 <img style="width:500px;" id="img" class="img-responsive" src="./image/<?php echo $post_image ?>" alt="">
                                 <hr>
                                 <p>
@@ -182,8 +202,6 @@ include "./includes/navigation.php";
                         </div>
                     </div>
                 </div>
-
-
             </section>
 
 

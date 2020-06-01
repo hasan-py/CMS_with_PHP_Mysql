@@ -120,13 +120,25 @@ if(isset($_POST['edit_post'])){
       </div>
     </div>
 
-    <div class="form-group">
+   
+        <div class="form-group">
       <label for="post_status">Post Status</label>
-      <input value="<?php echo $post_status; ?>" name="status" type="text" class="form-control col-md-8" id="post_status" placeholder="Type Your status" required>
-      <div class="invalid-feedback">
-        Must not be empty.
-      </div>
+      <select name="status" class="form-control col-md-8" id="post_status" placeholder="Type Your status" required>
+
+        <option value="<?php echo $post_status; ?>"><?php echo $post_status; ?></option>
+        <?php
+        if($post_status == 'published'){
+          echo "<option value='draft'>draft</option>";
+        }
+        else{
+          echo "<option value='published'>published</option>";
+        }
+        ?>
+        
+    </select>
     </div>
+
+
 
     <div class="form-group">
       <label for="post_content">Post Content</label>

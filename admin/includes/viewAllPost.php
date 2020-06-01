@@ -1,9 +1,36 @@
+<?php 
+
+if(isset($_POST['checkBoxArray'])){
+    foreach ($_POST['checkBoxArray'] as $checkBoxValue) {
+        $bulk_options = $_POST['bulk_options'];
+    }
+}
+
+
+?>
+
+<form action="" method="POST">
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <select class="form-control" name="bulk_options" id="">
+                <option value="">Published all</option>
+                <option value="">Draft all</option>
+                <option value="">Delete all</option>
+            </select>
+            <button class="btn btn-dark my-3">Apply</button>
+        </div>
+    </div>
+</div>
+
  <div class="card my-4 mx-4">
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
+                        <th><input class="checkBoxs" name="" type="checkBox"></th>
                         <th>Actions</th>
                         <th>Id</th>
                         <th>Title</th>
@@ -11,7 +38,7 @@
                         <th>Author</th>
                         <th>PubDate</th>
                         <th>Image</th>
-                        <th>Content</th>
+<!--                         <th>Content</th> -->
                         <th>Tags</th>
                         <th>Comment Count</th>
                         <th>Status</th>
@@ -29,12 +56,15 @@
                         $post_author = $row["post_author"];
                         $post_date = $row["post_date"];
                         $post_image = $row["post_image"];
-                        $post_content = substr($row["post_content"],0,30);
+                        // $post_content = substr($row["post_content"],0,30);
                         $post_tags = $row["post_tags"];
                         $post_comment_count = $row["post_comment_count"];
                         $post_status = $row["post_status"];
                         ?>
                         <tr>
+                            <td>
+                                <input value="<?php echo $post_id ?>" class="checkBoxs" name="checkBoxArray[]" type="checkBox">
+                            </td>
                             <td>
                                 <a class="btn btn-sm btn-info" href="post.php?source=edit_post&p_id=<?php echo $post_id; ?>"><i class="fas fa-edit"></i></a>
                                 <a class="btn btn-sm btn-danger" href="post.php?delete=<?php echo $post_id; ?>"><i class="fas fa-trash-alt"></i></a>
@@ -55,7 +85,7 @@
                             <td><?php echo $post_author ?></td>
                             <td><?php echo $post_date ?></td>
                             <td><?php echo "<img style='height:50px;' class='img-responsive' src='../image/$post_image' alt=''>"; ?></td>
-                            <td><?php echo $post_content ?>...</td>
+<!--                             <td><?php echo $post_content ?>...</td> -->
                             <td><?php echo $post_tags ?></td>
                             <td><?php echo $post_comment_count ?></td>
                             <td><?php echo $post_status ?></td>
@@ -66,7 +96,7 @@
         </div>
     </div>
 </div>
-
+</form>
 
 <?php 
 if(isset($_GET['delete'])){
