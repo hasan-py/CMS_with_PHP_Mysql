@@ -17,7 +17,12 @@ if(!isset($_SESSION['loginCMS'])){
 			<?php 
 			if(isset($_SESSION['user_firstname']) && isset($_SESSION['user_lastname'])){
 				?>
-				<h1 class="mt-4">Welcome,<?php echo $_SESSION['user_firstname']." ".$_SESSION['user_lastname']; ?></h1>
+				<div class="mt-4">
+					<div class="row">	
+					<h1 class="col-md-6 col-sm-12 d-flex">Welcome,<?php echo $_SESSION['user_firstname']." ".$_SESSION['user_lastname']; ?></h1>
+					<h5 class="col-md-6 col-sm-12 d-flex font-weight-light">Today,<?php echo date('l jS \of F Y h:i:s A'); ?></h5>
+					</div>	
+				</div>
 				<ol class="breadcrumb mb-4">
 					<li class="breadcrumb-item active">Dashboard</li>
 				</ol>

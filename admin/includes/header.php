@@ -1,6 +1,7 @@
 <?php session_start(); ?>
 <?php 
 $connection = mysqli_connect('localhost','root','','cms');
+date_default_timezone_set('Asia/Dhaka');
 
 if(!$connection){
     echo 'Server Error';

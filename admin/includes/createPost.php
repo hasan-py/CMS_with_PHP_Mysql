@@ -1,6 +1,7 @@
 
 <?php 
 
+
 if(isset($_POST['create_post'])){
   $post_title =  $_POST['title'];
   $post_author =  $_POST['author'];
@@ -87,10 +88,10 @@ if(isset($_POST['create_post'])){
 
     <div class="form-group">
       <label for="mytextarea">Post Content</label>
-      <textarea id="mytextarea" name="content" class="form-control col-md-8" rows="3" placeholder="Enter Your Content" required></textarea>
+      <textarea id="mytextarea" name="content" class="form-control col-md-8" rows="3" placeholder="Enter Your Content"></textarea>
     </div>
   
-    <button type="submit" name="create_post" class="btn btn-dark btn-block col-md-8">Submit Post</button>
+     <button type="submit" name="create_post" class="btn btn-dark btn-block col-md-8">Create Post</button>
 
   </form>
 </div>

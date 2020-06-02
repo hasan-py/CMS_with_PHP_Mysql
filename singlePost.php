@@ -120,6 +120,11 @@ include "./includes/navigation.php";
                     $email = $_POST['email'];
                     $comment = $_POST['comment'];
                     
+                    if(empty($authorName) && empty($email) && empty($comment)){
+                        echo "<script>alert('Field must not be empty')</script>";
+                    }
+                    else{
+
                     $commentQuery = "INSERT INTO `comments`(`comment_post_id`, `comment_author`, `comment_email`, `comment_status`, `comment_date`, `comment_content`) VALUES ({$p_id},'{$authorName}','{$email}','unapproved',now(),'{$comment}')";
                     $commentQueryResult = mysqli_query($connection,$commentQuery);
                     if (!$commentQueryResult){
@@ -130,10 +135,12 @@ include "./includes/navigation.php";
                     $commentCountQueryResult = mysqli_query($connection,$commentCountQuery);
                     if (!$commentCountQueryResult){
                         die(mysqli_error($connection));
+                    }else{
+                        echo "<script>alert('Your Comment will be approved soon')</script>";
                     }
 
                     ?>
-                    <?php }?>
+                    <?php }} ?>
 
 
 
