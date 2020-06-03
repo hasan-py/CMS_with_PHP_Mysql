@@ -7,9 +7,10 @@ if(isset($_POST['loginSubmit'])){
 	$password = $_POST['log_password'];
 	$username = mysqli_real_escape_string($connection,$username);
 	$password = mysqli_real_escape_string($connection,$password);
-	$password = md5($password);
-
-	$query_for_check = "SELECT * FROM users WHERE username='{$username}' and user_password='{$password}'";
+	$salt = "hasan21890255sfasjfajf";
+	$validPassword = crypt($password,$salt);
+	
+	$query_for_check = "SELECT * FROM users WHERE username='{$username}' and user_password='{$validPassword}'";
 	$result = mysqli_query($connection,$query_for_check);
 	if(mysqli_num_rows($result)>0){
 		while($row = mysqli_fetch_assoc($result)){

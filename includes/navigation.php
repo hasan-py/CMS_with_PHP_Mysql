@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="index.php">
-                <img src="assets/img/logo.png" alt="Site Logo">
+                PHP Blog
             </a>
         </div>
 
