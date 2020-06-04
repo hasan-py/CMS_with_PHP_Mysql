@@ -31,7 +31,7 @@ else{
                 <div class="col-md-9">
                     <p>
                         Posted By 
-                        <a href="singlePost.php?p_id=<?php echo $post_id; ?>"><?php echo $post_author; ?></a>
+                        <a href="author.php?author=<?php echo $post_author; ?>"><?php echo $post_author; ?></a>
                         ,
                         <?php 
                         $categoryQuery = "SELECT cat_title FROM `categories` WHERE cat_id={$post_category_id}";
