@@ -7,7 +7,7 @@ if(!$row = mysqli_fetch_assoc($res_posts)){
     echo '<h1 class="text-center">No Post Published Yet</h1>';
 }
 else{
-    $query_posts = "SELECT * FROM `posts` WHERE post_status='published' ORDER BY post_id DESC";
+    $query_posts = "SELECT * FROM `posts` WHERE post_status='published' ORDER BY post_id DESC LIMIT $page_1,$perPage";
     $res_posts = mysqli_query($connection,$query_posts);
     while ($row = mysqli_fetch_assoc($res_posts)){
         $post_id = $row["post_id"];

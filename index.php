@@ -22,31 +22,83 @@ include "./includes/navigation.php";
 
             <!-- blog-contents -->
             <section class="col-md-8">
+                
+
+
+                <?php 
+                $perPage = 2;
+                $post_query_count = "SELECT * FROM posts";
+                $find_count = mysqli_query($connection,$post_query_count);
+                $count = mysqli_num_rows($find_count);
+                $count = ceil($count/ $perPage);
+                
+                if(isset($_GET['page'])){
+                    $page = $_GET['page'];
+                }else{
+                    $page = "";
+                }
+
+                if($page == "" || $page == 1 || $page == 0){
+                    $page_1 = 0;
+                }else{
+                    $page_1 = ($page * $perPage) - $perPage;
+                }
+
+                ?>
+
+
 
                 <?php
                 include "includes/post.php";
                 ?>  
                 <!-- pagination -->
+                
                 <div class="page-turn">
                     <div class="row">
                         <div class="col-md-6 col-md-offset-3 text-center">
                             <nav>
                                 <ul class="pagination pagination-sm">
-                                    <li class="disabled">
-                                        <a href="#" aria-label="Previous">
+
+                                    <?php 
+                                        if(isset($_GET['page'])){
+                                            if($_GET['page']==0){
+                                            ?>
+                                                <li class="disabled">
+                                        <a href="" aria-label="Previous">
                                             <span aria-hidden="true">Prev</span>
                                         </a>
                                     </li>
-                                    <li class="active"><a href="index.html">1</a></li>
+                                    <?php
+                                     }
+                                     else{ ?>
+                                    <li class="">
+                                        <a href="index.php?page=<?php echo $_GET['page']-1 ?>" aria-label="Previous">
+                                            <span aria-hidden="true">Prev</span>
+                                        </a>
+                                    </li>
+                                <?php } } ?>
+                                    <?php 
+                                        
+                                        for ($i=1; $i<=$count;$i++){
+                                            if($i == $page){
+                                                echo "<li><a style='background:black;color:orange;' href='index.php?page={$i}'>{$i}</a></li>";
+                                            }
+                                            else{
+                                            echo "<li><a href='index.php?page={$i}'>{$i}</a></li>";
+                                            }
+                                        }
+
+                                    ?>
+<!--                                     <li class="active"><a href="index.html">1</a></li>
                                     <li><a href="page2.html">2</a></li>
                                     <li><a href="page3.html">3</a></li>
                                     <li><a href="page4.html">4</a></li>
-                                    <li><a href="page5.html">5</a></li>
-                                    <li>
+                                    <li><a href="page5.html">5</a></li> -->
+<!--                                     <li>
                                         <a href="page6.html" aria-label="Next">
                                             <span aria-hidden="true">Next</span>
                                         </a>
-                                    </li>
+                                    </li> -->
                                 </ul> 
                             </nav>
                         </div>
