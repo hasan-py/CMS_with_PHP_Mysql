@@ -16,6 +16,7 @@ include "./includes/navigation.php";
 
 
 
+
 <main>
     <div class="container">
         <div class="row">
@@ -23,8 +24,6 @@ include "./includes/navigation.php";
             <!-- blog-contents -->
             <section class="col-md-8">
                 
-
-
                 <?php 
                 $perPage = 2;
                 $post_query_count = "SELECT * FROM posts";

@@ -9,6 +9,30 @@ if(!isset($_SESSION['loginCMS'])){
 
 ?>
 
+<?php 
+
+$session = session_id();
+$time = time();
+$time_out_in_secound = 60;
+$time_out = $time - $time_out_in_secound;
+
+$query = "SELECT * FROM usersonline WHERE session='{$session}' ";
+$send_query = mysqli_query($connection,$query);
+$count = mysqli_num_rows($send_query);
+
+if($count == NULL){
+    mysqli_query($connection,"INSERT INTO usersonline(session,time) VALUES('{$session}','{$time}')");
+}
+else{
+    mysqli_query($connection,"UPDATE usersonline SET time='{$time}' WHERE session = '{$session}' ");
+}
+
+$usersOnline = mysqli_query($connection,"SELECT * FROM usersonline WHERE time > '{$time_out}' ");
+$count_user = mysqli_num_rows($usersOnline);
+
+
+?>
+
 <!-- this is for sideNav bar -->
 <?php include "./includes/sidebarNav.php" ?>
 <div id="layoutSidenav_content">
@@ -27,7 +51,20 @@ if(!isset($_SESSION['loginCMS'])){
 					<li class="breadcrumb-item active">Dashboard</li>
 				</ol>
 			<?php }?>
+			
 
+			<div class="row">
+				<div class="col-xl-3 col-md-6">
+					<div class="card bg-primary text-white mb-4">
+						<div class="card-header">Users online</div>
+						<div class="card-body display-4"><?php echo $count_user ?></div>
+						<div class="card-footer d-flex align-items-center justify-content-between">
+							<a class="small text-white stretched-link" href="post.php">View Details</a>
+							<div class="small text-white"><i class="fas fa-angle-right"></i></div>
+						</div>
+					</div>
+				</div>
+			</div>
 
 			<div class="row">
 				<div class="col-xl-3 col-md-6">
