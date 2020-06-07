@@ -8,7 +8,7 @@ if(isset($_POST['loginSubmit'])){
 	$username = mysqli_real_escape_string($connection,$username);
 	$password = mysqli_real_escape_string($connection,$password);
 	$salt = "hasan21890255sfasjfajf";
-	$validPassword = crypt($password,$salt);
+	$validPassword = md5($password);
 	
 	$query_for_check = "SELECT * FROM users WHERE username='{$username}' and user_password='{$validPassword}'";
 	$result = mysqli_query($connection,$query_for_check);

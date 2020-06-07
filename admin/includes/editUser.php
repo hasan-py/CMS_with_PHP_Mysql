@@ -16,6 +16,10 @@ if(isset($_GET['u_id'])){
     $user_role = $row["user_role"];
     $randsolt = $row["randsolt"];
     $user_joindate = $row["user_joindate"];
+  
+
+    $user_password = md5($user_password);
+
   }
 }
 
@@ -28,6 +32,10 @@ if(isset($_POST['edit_user'])){
   $Upuser_email =  $_POST['user_email'];
   $Upuser_role =  $_POST['user_role'];
   
+  $salt = "hasan21890255sfasjfajf";
+  $Upuser_password = crypt($Upuser_password,$salt);
+
+
   $editQuery = "UPDATE users SET username='{$UpUsername}', user_firstname='{$Upuser_firstname}',user_lastname='{$Upuser_lastname}',user_role='{$Upuser_role}',user_password='{$Upuser_password}',user_email='{$Upuser_email}' WHERE user_id=$user_id ";
   
   $editQueryRes = mysqli_query($connection,$editQuery);

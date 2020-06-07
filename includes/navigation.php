@@ -28,6 +28,11 @@
                 }
                 ?>
                 <li><a href='admin'>admin</span></a></li>
+                <?php 
+                    if(!isset($_SESSION['loginCMS'])){
+                 ?>
+                <li><a href='register.php'>Register</span></a></li>
+            <?php } ?>
             </ul>
         </div><!-- end of /.navbar-collapse -->
     </div><!-- end of /.container -->

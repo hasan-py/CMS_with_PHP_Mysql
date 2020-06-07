@@ -14,7 +14,11 @@ include "./includes/header.php";
 include "./includes/navigation.php";
 ?>
 
-
+<?php 
+    if(isset($_SESSION['loginCMS'])){
+        header('Location: index.php');
+    }
+ ?>
 
 
 <main>
@@ -75,7 +79,7 @@ if(isset($_POST['submit'])){
     if(empty($username) && empty($email) && empty($password) && empty($confirmPassword)){
        echo '<script>alert("field must not be empty")</script>'; 
     }else{
-        $validPassword = crypt($password,$salt);
+        $validPassword = md5($password);
         $insertQuery = "INSERT INTO users VALUES('','{$username}','{$validPassword}','{$email}','','','','','{$salt}',now())";
         $result = mysqli_query($connection,$insertQuery);
         if($result){

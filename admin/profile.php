@@ -36,6 +36,7 @@ if(isset($_SESSION['user_id'])){
     $user_id = $row["user_id"];
     $username = $row["username"];
     $user_password = $row["user_password"];
+    $user_password = md5($user_password);
     $user_email = $row["user_email"];
     $user_firstname = $row["user_firstname"];
     $user_lastname = $row["user_lastname"];
