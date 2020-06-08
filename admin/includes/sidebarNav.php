@@ -1,8 +1,10 @@
+
 <div id="layoutSidenav">
 	<div id="layoutSidenav_nav">
 		<nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
 			<div class="sb-sidenav-menu">
 				<div class="nav">
+					
 					<div class="sb-sidenav-menu-heading">Main</div>
 					<a class="nav-link" href="index.php"
 					><div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
@@ -12,7 +14,10 @@
 					><div class="sb-nav-link-icon"><i class="fa fa-list-alt"></i></div>
 					Categories</a
 					>
+
+					
 					<div class="sb-sidenav-menu-heading">Interface</div>
+
 					<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"
 					><div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
 					Posts
@@ -21,10 +26,10 @@
 						<div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="post.php">View All Post</a><a class="nav-link" href="post.php?source=add_post">Create Post</a></nav>
 						</div>
-									<a class="nav-link" href="comments.php"
-									><div class="sb-nav-link-icon"><i class="far fa-comment"></i></div>
-									Comments</a
-									>
+						<a class="nav-link" href="comments.php"
+						><div class="sb-nav-link-icon"><i class="far fa-comment"></i></div>
+						Comments</a
+						>
 						<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages"
 						><div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
 						Users
@@ -54,3 +59,13 @@
 							</div>
 						</nav>
 					</div>
+
+
+					
+
+
+					
+
+					
+
+					

@@ -80,7 +80,7 @@ if(isset($_POST['submit'])){
        echo '<script>alert("field must not be empty")</script>'; 
     }else{
         $validPassword = md5($password);
-        $insertQuery = "INSERT INTO users VALUES('','{$username}','{$validPassword}','{$email}','','','','','{$salt}',now())";
+        $insertQuery = "INSERT INTO users VALUES('','{$username}','{$validPassword}','{$email}','','','','subscriber','{$salt}',now())";
         $result = mysqli_query($connection,$insertQuery);
         if($result){
             echo '<script>alert("Account Register Successfully.")</script>';

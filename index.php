@@ -14,9 +14,6 @@ include "./includes/header.php";
 include "./includes/navigation.php";
 ?>
 
-
-
-
 <main>
     <div class="container">
         <div class="row">
