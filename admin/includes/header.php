@@ -10,7 +10,7 @@ if(!$connection){
 
 <?php 
 
-
+// this logic for redirect subscriber
 if ($_SESSION['user_role']=='subscriber'){
     header('Location: ../index.php');
 }

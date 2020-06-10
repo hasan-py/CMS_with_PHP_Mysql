@@ -4,6 +4,8 @@
 include "./includes/db.php";
 ?>
 
+
+
 <!-- Header -->
 <?php
 include "./includes/header.php";
@@ -20,7 +22,7 @@ include "./includes/navigation.php";
 
             <!-- blog-contents -->
             <section class="col-md-8">
-                
+                <!-- Logic for Pagination -->
                 <?php 
                 $perPage = 2;
                 $post_query_count = "SELECT * FROM posts";
@@ -85,16 +87,6 @@ include "./includes/navigation.php";
                                         }
 
                                     ?>
-<!--                                     <li class="active"><a href="index.html">1</a></li>
-                                    <li><a href="page2.html">2</a></li>
-                                    <li><a href="page3.html">3</a></li>
-                                    <li><a href="page4.html">4</a></li>
-                                    <li><a href="page5.html">5</a></li> -->
-<!--                                     <li>
-                                        <a href="page6.html" aria-label="Next">
-                                            <span aria-hidden="true">Next</span>
-                                        </a>
-                                    </li> -->
                                 </ul> 
                             </nav>
                         </div>

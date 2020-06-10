@@ -52,8 +52,8 @@ $count_user = mysqli_num_rows($usersOnline);
 				</ol>
 			<?php }?>
 			
-
-			<div class="row">
+<!-- Not Implement -->
+<!-- 			<div class="row">
 				<div class="col-xl-3 col-md-6">
 					<div class="card bg-primary text-white mb-4">
 						<div class="card-header">Users online</div>
@@ -64,7 +64,7 @@ $count_user = mysqli_num_rows($usersOnline);
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 
 			<div class="row">
 				<div class="col-xl-3 col-md-6">
@@ -137,6 +137,9 @@ $count_user = mysqli_num_rows($usersOnline);
 				</div>
 			</div>
 
+
+
+<!-- Chart Logic Start -->
 <?php 
 
 $connection = mysqli_connect('localhost','root','','cms');

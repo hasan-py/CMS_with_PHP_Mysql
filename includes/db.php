@@ -3,7 +3,7 @@
 $connection = mysqli_connect('localhost','root','','cms');
 
 if(!$connection){
-	echo 'We are Not connected';
+	die("Not connected".mysqli_error($connection));
 }
 
 

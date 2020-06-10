@@ -36,10 +36,11 @@ if(isset($_POST['edit_user'])){
   $Upuser_password = crypt($Upuser_password,$salt);
 
 
-  $editQuery = "UPDATE users SET username='{$UpUsername}', user_firstname='{$Upuser_firstname}',user_lastname='{$Upuser_lastname}',user_role='{$Upuser_role}',user_password='{$Upuser_password}',user_email='{$Upuser_email}' WHERE user_id=$user_id ";
+  $editQuery = "UPDATE users SET username='{$UpUsername}', user_firstname='{$Upuser_firstname}',user_lastname='{$Upuser_lastname}',user_role='{$Upuser_role}',user_email='{$Upuser_email}' WHERE user_id=$user_id ";
   
   $editQueryRes = mysqli_query($connection,$editQuery);
   if($editQueryRes){
+    $_SESSION['username'] = $UpUsername;
     header('Location: users.php');
     exit;
   }
@@ -68,6 +69,8 @@ if(isset($_POST['edit_user'])){
       <label for="user_firstname">First Name</label>
       <input value="<?php echo $user_firstname ?>" name="user_firstname" type="text" class="form-control col-md-8" id="user_firstname" placeholder="Enter First Name" required>
     </div>
+
+    <!-- Not Implement -->
 <!-- 
     <div class="form-group">
       <label for="post_image">Post Image</label>
@@ -86,10 +89,12 @@ if(isset($_POST['edit_user'])){
     <input value="<?php echo $user_email ?>" name="user_email" type="email" class="form-control col-md-8" id="user_email" placeholder="Enter Your Email" required>
   </div>
 
-  <div class="form-group">
+
+<!-- Bugs -->
+<!--   <div class="form-group">
     <label for="user_password">Password</label>
     <input value="<?php echo $user_password ?>" type="password" name="user_password" class="form-control col-md-8" id="user_password" rows="3" placeholder="Enter Your Password" required></input>
-  </div>
+  </div> -->
 
   <div class="form-group">
     <label for="user_role">Role</label>
