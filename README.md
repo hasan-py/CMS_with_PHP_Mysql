@@ -8,5 +8,5 @@ Move the folder to your XAMPP htdocs folder. Go to the browser and type localhos
 
 ![CMS](./cms.PNG)
 
-Author:Hasan-py
-Thanks.
+###### Author:Hasan-py
+###### Thanks.
