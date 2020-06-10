@@ -12,7 +12,8 @@
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Email</th>
-                        <th>Image</th>
+                        <!-- Not Implement -->
+                        <!-- <th>Image</th> -->
                         <th>Join Date</th>
                         <th>randsolt</th>
                     </tr>
@@ -47,8 +48,9 @@
                                 <td><?php echo $user_firstname ?></td>
                                 <td><?php echo $user_laststname ?></td>
                                 <td><?php echo $user_email ?></td>
-                                <td><?php echo $user_image ?></td>
-                                <td><?php echo $user_joindate ?></td>
+                                <!-- Not Implement -->
+                                <!-- <td><?php echo $user_image ?></td>
+ -->                                <td><?php echo $user_joindate ?></td>
                                 <td><?php echo $randsolt ?></td>
 
                               <!--   <?php
